@@ -110,38 +110,36 @@ void votesCount(){
 
 }
 
-   void swap(int* xp, int* yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
-
-
-void bubbleSort(int arr[], int n)
-{
-    int i, j;
-    for (i = 0; i < n - 1; i++)
- 
-        for (j = 0; j < n - i - 1; j++)
-            if (arr[j] > arr[j + 1])
-                swap(&arr[j], &arr[j + 1]);
-}
-
 
 void leadWinner(){
     
-    int arr[3];
+    int leader  = 1; 
     
-    arr[0]=votescount1;
-    arr[1]=votescount2;
-    arr[2]=votescount3;
+    int win =votescount1;
+
+    if(win<votescount2)
+    {
+        win = votescount2;
+        leader = 2;
+    }
     
-    bubbleSort(arr,3);
-    
-    
-    printf("The winner is %d\n", arr[2]);
-   
+    if(win < votescount3)
+    {
+        win = votescount3;
+        leader = 3;
+    }
+
+    switch(leader)
+    {
+        case 1: printf(" \t the leader is Saahil singh rathor  (^_^)  \t votes: %d   ", win);
+            break;
+        
+        case 2: printf("\t  the leader is Srajeta  (^_^),\t votes: %d  ", win);
+            break;
+
+        case 3: printf(" \t the leader is Aman  (^_^), \t votes: %d ", win);
+    }
+  
 }
 
 
