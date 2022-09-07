@@ -5,7 +5,7 @@
 
 #include<stdlib.h>
 
-// #include<C:\Users\SAAHIL RATHORE\Desktop\Programming stuff\C&C++ Stuff\cand_names.c>
+
 
 
 
