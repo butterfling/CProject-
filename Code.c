@@ -136,12 +136,22 @@ void leadWinner(){
     arr[0]=votescount1;
     arr[1]=votescount2;
     arr[2]=votescount3;
+   
+    if(arr[0] > arr[1] && arr[0] > arr[2]){
+        printf("Saahil wins \n");
+    }
+    else if(arr[1] > arr[0] && arr[1] > arr[2]){
+        printf("Srajeta wins \n");
+    }
+    
+    else{
+        printf("Aman wins\n");
+    }
     
     bubbleSort(arr,3);
     
     
-    printf("The winner is %d\n", arr[2]);
-   
+    printf("The maximum number of votes is %d\n",arr[2]);
 }
 
 
@@ -174,6 +184,7 @@ int main(){
          case 3: leadWinner(); break;
         
          default: printf("\n Error: Invalid Choice");
+              
       }
 
    }while(choice!=0);
