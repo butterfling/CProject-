@@ -1,13 +1,9 @@
-
 #include<stdio.h>
 
 #include<string.h>
 
 #include<stdlib.h>
-
-
-
-
+#include<conio.h>
 
 #define CANDIDATE_COUNT
 #define CR_CAND1 "Saahil"
@@ -26,8 +22,7 @@ void messagePrint(const char* message)
 
     printf("\t\t\t");
     for(pos =0 ; pos < len ; pos++)
-    {
-        
+    { 
         printf(" ");
     }
     
@@ -37,18 +32,19 @@ void messagePrint(const char* message)
 
 void headline(const char *message)
 {
+    system("COLOR 02");
     
-    printf("\t\t\t###########################################################################");
-    printf("\n\t\t\t############                                                   ############");
+    printf("\t\t\t\t###########################################################################");
+    printf("\n\t\t\t\t############                                                   ############");
 
 
-    printf("\n\t\t\t############                CR Election Machine                     ############");
-    printf("\n\t\t\t############                                                   ############");
-    printf("\n\t\t\t###########################################################################");
-    printf("\n\t\t\t---------------------------------------------------------------------------\n");
+    printf("\n\t\t\t\t############                CR Election Machine                ############");
+    printf("\n\t\t\t\t############                                                   ############");
+    printf("\n\t\t\t\t###########################################################################");
+    printf("\n\t\t\t\t---------------------------------------------------------------------------\n");
     messagePrint(message);
 
-    printf("\n\t\t\t----------------------------------------------------------------------------");
+    printf("\n\t\t\t\t----------------------------------------------------------------------------");
 }
 
 
@@ -57,17 +53,17 @@ void welcomeMessage()
    
     headline("Welcome to The Election");
     printf("\n\n\n\n\n");
-    printf("\n\t\t\t  *------------------*\n");
-    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    printf("\n\t\t\t        =                 WELCOME                   =");
-    printf("\n\t\t\t        =                   TO                      =");
-    printf("\n\t\t\t        =                   CR                      =");
-    printf("\n\t\t\t        =                  VOTING                   =");
-    printf("\n\t\t\t        =                 MACHINE                   =");
+    printf("\n\t\t\t\t                 ------------------\n");
+    printf("\n\t\t\t\t      =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t\t      =                 WELCOME                   =");
+    printf("\n\t\t\t\t      =                   TO                      =");
+    printf("\n\t\t\t\t      =                   CR                      =");
+    printf("\n\t\t\t\t      =                  VOTING                   =");
+    printf("\n\t\t\t\t      =                 MACHINE                   =");
 
 
-    printf("\n\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    printf("\n\t\t\t  *------------------*\n");
+    printf("\n\t\t\t\t      =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t\t                ------------------\n");
     
 
 }
@@ -78,19 +74,20 @@ void castvote(){
    int option;
 
 
-   printf("\n\n ### Select the candidate ####\n\n");
-   printf("\n 1. %s", CR_CAND1);
+   printf("\n\n \t \t \t \t \t ### Select the candidate ####\n\n");
+   printf("\n \t\t\t\t\t\t 1. %s", CR_CAND1);
 
-   printf("\n 2. %s", CR_CAND2);
+   printf("\n \t\t\t\t\t\t 2. %s", CR_CAND2);
 
-   printf("\n 3. %s", CR_CAND3);
+   printf("\n \t\t\t\t\t\t 3. %s", CR_CAND3);
 
-   printf("\n4. %s", "None of These");
+   printf("\n  \t\t\t\t\t\t 4. %s", "None of These");
 
-   printf("\n Enter your option : ");
+   printf("\n \t\t\t\t\t\t  Enter your option : ");
    scanf("%d",&option);
 
-   switch(option){
+   switch(option)
+   {
       case 1: votescount1++; break;
       case 2: votescount2++; break;
       case 3: votescount3++; break;
@@ -98,64 +95,72 @@ void castvote(){
     
       getchar();
    }
-   printf("\n Vote has been casted");
+   printf("\n \t\t\t\t\t\t  Vote has been casted");
 }
 void votesCount(){
 
-   printf("\n\n Dashboard \n\n");
+   printf("\n\n \t\t\t\t\t\t Dashboard \n\n");
 
-   printf("\n %s - %d ", CR_CAND1, votescount1);
-   printf("\n %s - %d ", CR_CAND2, votescount2);
-   printf("\n %s - %d ", CR_CAND3, votescount3);
+   printf("\n \t\t\t\t\t\t %s - %d ", CR_CAND1, votescount1);
+   printf("\n \t\t\t\t\t\t %s - %d ", CR_CAND2, votescount2);
+   printf("\n \t\t\t\t\t\t %s - %d ", CR_CAND3, votescount3);
 
 }
 
-   void swap(int* xp, int* yp)
-{
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
-
-
-void bubbleSort(int arr[], int n)
-{
-    int i, j;
-    for (i = 0; i < n - 1; i++)
- 
-        for (j = 0; j < n - i - 1; j++)
-            if (arr[j] > arr[j + 1])
-                swap(&arr[j], &arr[j + 1]);
-}
 
 
 void leadWinner(){
     
-    int arr[3];
-    
-    arr[0]=votescount1;
-    arr[1]=votescount2;
-    arr[2]=votescount3;
-   
-    if(arr[0] > arr[1] && arr[0] > arr[2]){
-        printf("Saahil wins \n");
+    int leader  ; 
+
+    int win =votescount1;
+
+   if ( votescount1 > votescount2 && votescount1 > votescount3 )
+        {   
+            leader = 1 ;
+            win = votescount1;
+        }
+
+
+   else if ( votescount2 > votescount1 && votescount2 > votescount3 )
+        {   
+            leader = 2 ;
+            win = votescount2;
+        }
+      
+
+   else if ( votescount3 > votescount1 && votescount3 > votescount2 )
+        {   
+            leader = 3 ;
+            win = votescount3;
+        }
+
+   else   
+      leader = 4;
+
+    switch(leader)
+    {
+        case 1: printf("\n\n \t\t\t\t\t  Saahil singh rathore  wins  \t votes: %d   ", win);
+            break;
+
+        case 2: printf("\n\n \t\t\t\t\t   Srajeta wins \t votes: %d  ", win);
+            break;
+
+        case 3: printf(" \n\n \t\t\t\t\t  Aman  wins \t votes: %d ", win);
+            break;
+
+        case 4: printf(" \n\n \t\t\t\t\t the voting has not started or in progress  ");
+            break;
+            
+        
     }
-    else if(arr[1] > arr[0] && arr[1] > arr[2]){
-        printf("Srajeta wins \n");
-    }
     
-    else{
-        printf("Aman wins\n");
-    }
-    
-    bubbleSort(arr,3);
-    
-    
-    printf("The maximum number of votes is %d\n",arr[2]);
 }
 
 
-int main(){
+int main()
+{
+    system("cls");
    int i;
    int choice;
    
@@ -164,17 +169,17 @@ int main(){
    
    do{
 
-      printf("\n\n CR Election System \n\n");
+      printf("\n\n \t \t \t \t \t \t CR Election System \n\n");
 
-      printf("\n 1. Cast Vote");
+      printf("\n \t \t \t \t \t \t 1. Cast Vote");
 
-      printf("\n 2. Access the leaderboard count");
+      printf("\n \t \t \t \t \t \t 2. Access the leaderboard count");
 
-      printf("\n 3. View the winner");
+      printf("\n \t \t \t \t \t \t 3. View the winner");
       
-      printf("\n 4. Exit");
+      printf("\n \t \t \t \t \t \t 4. Exit");
 
-      printf("\n Please enter your choice : ");
+      printf("\n \t \t \t \t \t \t  Please enter your choice : ");
       scanf("%d", &choice);
 
       switch(choice){
@@ -183,11 +188,15 @@ int main(){
          case 2: votesCount();break;
          case 3: leadWinner(); break;
         
-         default: printf("\n Error: Invalid Choice");
+        default: goto voteend;
+         
+         //default: printf("\n \t \t \t \t \t \t   Error: Invalid Choice");
               
       }
 
    }while(choice!=0);
+
+   voteend:printf("\n\n \t \t \t \t \t \t  Thank You !");
 
    getchar();
    return 0;
